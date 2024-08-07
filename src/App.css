@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f2f2f2;
+}
+
+.Filter {
+    margin: 20px 20px;
+}
+
+.Filterbar {
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+.Filterbutton {
+    height: 30px;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 0 50px;
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    flex: 1 1 calc(33.333% - 20px);
+    max-width: calc(33.333% - 20px);
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardimage img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+}
+
+.cardaddress {
+    color: rgb(70, 63, 63);
+}
