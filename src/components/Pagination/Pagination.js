@@ -3,7 +3,7 @@ import React from 'react';
 function Pagination({ currentPage, size, limitPage, onChangePage }) {
     const getPaginationNumbers = () => {
         const pageNumbers = [];
-        const totalPages = Math.ceil(size / limitPage);
+        const totalPages = Math.ceil(limitPage);
         const startPage = Math.max(2, currentPage - Math.floor(limitPage / 2));
         const endPage = Math.min(totalPages - 1, currentPage + Math.floor(limitPage / 2));
 

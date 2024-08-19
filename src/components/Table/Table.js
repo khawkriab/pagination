@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import Pagination from '../Pagination/Pagination';
 
 function Table({ data = [] }) {
@@ -22,7 +22,7 @@ function Table({ data = [] }) {
                 currentPage={currentPage}
                 size={data.length}
                 limitPage={limitPage}
-                onChangePage={(page) => { setCurrentPage(page) }}
+                onChangePage={(page) => {setCurrentPage(page)}}
             />
         </div>
     );
