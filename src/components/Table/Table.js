@@ -1,9 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Pagination from '../Pagination/Pagination';
-import { DataContext } from '../../ContextProvider';
 
-function Table() {
-    const { data } = useContext(DataContext);
+function Table({ data = [] }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [size, setSize] = useState(10);
     const [limitPage, setLimitPage] = useState(10);
@@ -14,7 +12,7 @@ function Table() {
         <div>
             <table>
                 {paginatedData.map((item) => (
-                    <tr key={item.id}>
+                    <tr>
                         <td>{item.id}</td>
                         <td>{item.name}</td>
                     </tr>
