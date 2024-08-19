@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { DataContext } from '../ContextProvider';
+import { DataContext } from '../../ContextProvider';
 import Card from './Card';
 
 function Filter() {

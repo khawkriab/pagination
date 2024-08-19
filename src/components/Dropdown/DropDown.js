@@ -17,7 +17,7 @@ function Testdrop(isOpen, setIsOpen) {
         </>
     );
 
-    function Dropdown({ items, children }) {
+    function DropDown({ items, children }) {
         const [isOpen, setIsOpen] = useState(false)
         const bfnRef = useRef(null);
         console.log('bfnRef.current:', bfnRef.current)
