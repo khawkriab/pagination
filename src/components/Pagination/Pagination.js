@@ -1,11 +1,12 @@
 import React from 'react';
 
-function Pagination({ currentPage, size, limitPage, onChangePage }) {
+function Pagination({ currentPage, size, totalItems, onChangePage, limitPage }) {
+    const totalPages = Math.ceil(totalItems / size);
+
     const getPaginationNumbers = () => {
         const pageNumbers = [];
-        const totalPages = Math.ceil(limitPage);
-        const startPage = Math.max(2, currentPage - Math.floor(limitPage / 5));
-        const endPage = Math.min(totalPages - 1, currentPage + Math.floor(limitPage / 5));
+        const startPage = Math.max(2, currentPage - Math.floor(limitPage / 2));
+        const endPage = Math.min(totalPages - 1, currentPage + Math.floor(limitPage / 2));
 
         if (startPage > 2) {
             pageNumbers.push('...');
@@ -23,7 +24,7 @@ function Pagination({ currentPage, size, limitPage, onChangePage }) {
     };
 
     const prevPage = () => currentPage > 1 && onChangePage(currentPage - 1);
-    const nextPage = () => currentPage < Math.ceil(size / limitPage) && onChangePage(currentPage + 1);
+    const nextPage = () => currentPage < totalPages && onChangePage(currentPage + 1);
 
     return (
         <nav>
@@ -44,8 +45,8 @@ function Pagination({ currentPage, size, limitPage, onChangePage }) {
                         </button>
                     </li>
                 ))}
-                <li className={`page-item ${currentPage === Math.ceil(size / limitPage) ? 'disabled' : ''}`}>
-                    <button className='page-link' onClick={nextPage} disabled={currentPage === Math.ceil(size / limitPage)}>
+                <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+                    <button className='page-link' onClick={nextPage} disabled={currentPage === totalPages}>
                         &gt;
                     </button>
                 </li>

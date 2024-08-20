@@ -1,6 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import Table from './components/Table/Table';
 
 export const DataContext = createContext();
 
@@ -14,11 +13,11 @@ export function ContextProvider({ children }) {
   }, []);
 
   return (
-    <main>
-      <Table data={data} />
-    </main>
-    // <DataContext.Provider value={{ data }}>
-    //   {children}
-    // </DataContext.Provider>
+    // <main>
+    //   <Table data={data} />
+    // </main>
+    <DataContext.Provider value={{ data }}>
+      {children}
+    </DataContext.Provider>
   );
 }
