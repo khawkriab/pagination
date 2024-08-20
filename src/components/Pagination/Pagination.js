@@ -34,8 +34,8 @@ function Pagination({ currentPage, size, totalItems, onChangePage, limitPage }) 
                         &lt;
                     </button>
                 </li>
-                {getPaginationNumbers().map((num, index) => (
-                    <li className={`page-item ${currentPage === num ? 'active' : ''}`} key={index}>
+                {getPaginationNumbers().map((num) => (
+                    <li className={`page-item ${currentPage === num ? 'active' : ''}`}>
                         <button
                             className='page-link'
                             onClick={() => num !== '...' && onChangePage(num)}
