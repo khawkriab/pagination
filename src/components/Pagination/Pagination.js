@@ -1,6 +1,99 @@
 import React, { useState } from 'react';
 
 function Pagination({ currentPage, size, limitPage, totalItems, onChangePage }) {
+    const [pageList, setPageList]=useState([])
+    const methodN =()=> {} // void function
+    const methodA =()=> {return ''} // callback function
+
+    const NUMber = 10
+    const [calc, setCalc]=useState(1)
+    const [count, setCount]=useState(1)
+
+  useEffect(
+        ()=>{
+            const init = ()=>{
+                setCalc(count + NUMber)
+            }
+                
+        },
+        [count]
+    )
+    
+   // useEffect() // (callback,depend[])=> { return callback()}
+    useEffect(
+        ()=>{},
+        []
+    )
+
+    const n = ()=>{
+        const m =()=>{}
+
+        m()
+    }
+       useEffect(
+        n,
+        []
+    )
+
+       useEffect(
+        ()=>{
+            const init = ()=> {}
+
+            init()           
+        },
+        []
+    )
+           useEffect(
+        ()=>{
+            const init = ()=> {}
+
+            init()           
+        },
+        [show, page]
+    )
+
+    const [page, setPage] = useState(currentPage)
+
+    const onChangePage=(current)=>{
+        // when "current = undefind"
+        setPage(current ?? 1) // 1
+         setPage(current || 1) // 1
+
+         // when "current = 0"
+        setPage(current ?? 1) // 0
+        setPage(current || 1) // 1
+
+         // when "current = ''"
+        setPage(current ?? null) // ''
+         setPage(current || null) // null
+
+        
+        onChangePage(current)
+    }
+
+    const ifif = () => {
+        // const a = x || z || y
+        // const c = x ?? z ?? y
+         // const n = A ? 'yes':'no'
+        if(A){
+           n = 'yes'
+        }else{
+            n = 'no'
+        }
+
+        // const n = A && 'yes'
+        if(A){
+           n = 'yes'
+        }else{
+            n = undefind
+        }
+            
+    }
+        
+
+
+
+    
     const totalPages = totalItems ? Math.ceil(totalItems / size) : 10;
     const [pCurrentPage, setpCurrentPage] = useState(1);
     const [pLimitPage, setpLimitPage] = useState(limitPage || 5);
@@ -58,11 +151,23 @@ function Pagination({ currentPage, size, limitPage, totalItems, onChangePage }) 
                         &lt;
                     </button>
                 </li>
+
+                () => num !== '...' && (onChangePage ? onChangePage(num) : setpCurrentPage(num))
+
+const n = (num)=> {
+    if(num !== '...'){
+         setpCurrentPage(num)
+        if(onChangePage) {
+            onChangePage(num)
+        }
+    }
+}
+    
                 {paginationNumbers.map((num, index) => (
                     <li key={index} className={`page-item ${(onChangePage ? currentPage : pCurrentPage) === num ? 'active' : ''}`}>
                         <button
                             className='page-link'
-                            onClick={() => num !== '...' && (onChangePage ? onChangePage(num) : setpCurrentPage(num))}
+                            onClick={() => n(num)}
                             disabled={num === '...'}
                         >
                             {num}
